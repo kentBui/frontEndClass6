@@ -1,0 +1,87 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*css classes general*/
+
+.bg-brown {
+	background-color: #b48f58;
+}
+
+.text-center {
+	padding: 50px 0;
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.container {
+	width: 1000px;
+	background-color: #ccc;
+	margin: auto;
+	padding: 30px 0;
+}
+
+/*css header*/
+.container .row__header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.row__header .logo {
+	width: 320px;
+}
+
+.row__header .menu {
+	width: 630px;
+}
+
+/*css main*/
+.container .row__main {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 25px;
+	margin-bottom: 30px;
+}
+
+.row__main .box {
+	padding: 100px 0;
+}
+
+.row__main .box:nth-child(even) {
+	background-color: #00746b;
+}
+
+/*css footer*/
+.container .row_footer {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.row_footer .footer__left {
+	width: 705px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.row_footer .footer__left .left__1{
+	width: 145px;
+}
+
+
+.row_footer .footer__left .left__2{
+	width: 545px;
+}
+
+.row_footer .footer__right {
+	width: 255px;
+}
