@@ -23,6 +23,9 @@ a {
 	display: inline-block;
 }
 /*add header css*/
+body {
+	background-color: #b196f326;
+}
 .container	{
 	width: 100%;
 }
@@ -49,7 +52,6 @@ a {
 	display: inline;
 	margin-left: 30px;
 	text-transform: capitalize;
-	position: relative;
 }
 
 .menu .menu__item a {
@@ -62,27 +64,6 @@ a {
 	color: #136ebf;
 }
 
-.menu .menu__item:hover ul{
-	display: block;
-}
-
-.menu .menu__item ul {
-	background-color: transparent;
-	width: 200px;
-	display: none;
-	position: absolute;
-	right: 0;
-	top: 100%;
-}
-
-.menu .menu__item ul li a{
-	padding: 10px 5px;
-	color: #fff;
-}
-
-.menu .menu__item ul li a:hover{
-	color: #fff;
-}
 /*add banner css*/
 .row__banner {
 	width: 1175px;
@@ -185,24 +166,15 @@ a {
 
 .search__email button {
 	border: none;
-    background: none;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+	background: none;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
 }
 
 .search__email button i {
 	font-size: 20px;
-	color: #136ebf;
-	
-	
 }
 
 /*add row__main css*/
@@ -221,8 +193,7 @@ a {
 
 .title {
 	font-size: 20px;
-/*	padding-left: 10px;
-	padding-bottom: 8px;*/
+	
 	display: inline-block;
 	border-left: 15px solid #136ebf;
 	border-bottom: 2px solid #136ebf;
@@ -230,16 +201,15 @@ a {
 }
 
 .title a {
-	color:  #136ebf;
+	color: #414141;
 	font-weight: bold;
-	font-size: 25px;
-	padding: 5px 15px;
+	padding-left: 10px;
+	padding-bottom: 8px;
 }
 
 .title a:hover {
-	color:#0D8BF6;
+	color: #136ebf;
 }
-
 /*add content upper*/
 .main__left .content__up {
 	width: 840px;
@@ -276,18 +246,17 @@ a {
 .up__box .box__title {
 	font-size: 20px;
 	text-transform: uppercase;
-	color: #333;
-	transition: 0.3s;
+	
 }
 
 .up__box .box__title:hover {
 	color: #136ebf;
-	font-weight: bold;
 }
 
 .up__box .box__price {
 	font-size: 16px;
 	font-weight: bold;
+	color: #333;
 }
 
 .box__view {
@@ -297,7 +266,7 @@ a {
 	border-radius: 30px;
 	color: #fff;
 	display: inline-block;
-	margin-top: 5px;
+	margin-top: 8px;
 	transition: 0.3s;
 }
 
@@ -318,13 +287,27 @@ a {
 .content__middle .middle__box{
 	width: 45%;
 	margin-top: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
 }
 
 .content__middle .middle__box .image--md {
-	float: left;
+	width: 180px;
 	margin-right: 18px;
 	overflow: hidden;
 	display: inline-block;
+}
+
+.content__middle .middle__box .box__info--md {
+	width: calc(100% - 198px);
+}
+
+.middle__box .box__info--md .box__title--md {
+	font-size: 18px;
+}
+.middle__box .box__info--md .box__price--md {
+	margin-top: 10px;
 }
 
 .middle__box img {
@@ -359,7 +342,7 @@ a {
 }
 
 .content__down .down__box .box__info--do {
-	width: calc(100% - 330px);
+	width: 510px;
 }
 
 .box__info--do .box__title--do {
@@ -378,13 +361,13 @@ a {
 	font-size: 14px;
 }
 
-.box__info--do .text-config {
+.box__info--do .text--config {
 	font-size: 13px;
 	margin-top: 20px;
-	height: 80px;
+	-webkit-line-clamp: 4;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
 	overflow: hidden;
-	display: box;
-	box-align: start;
 }
 /*add css row_main right*/
 .row__main .main__right {
@@ -395,7 +378,7 @@ a {
 	margin-bottom: 25px;
 }
 
-.row__main .main__right a:last-child {
+.row__main .main__right img:last-child {
 	margin-bottom: 0;
 }
 
@@ -426,4 +409,8 @@ a {
 	text-align:center;
 	font-size: 12px;
 	color: #fff;
+}
+
+@media (max-width: 480px) {
+
 }
