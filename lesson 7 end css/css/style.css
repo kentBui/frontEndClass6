@@ -10,7 +10,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: #414141;
+	color: inherit;
 	display: inline-block;
 }
 
@@ -164,13 +164,13 @@ ul {
 
 .r--banner .banner__box {
     width: calc(100% / 3);
-    height: 495px;
     overflow: hidden;
     position: relative;
 }
 
 .banner__box .box__image {
     width: 100%;
+    height: 50vh;
 }
 
 .banner__box .box__image img {
@@ -657,9 +657,16 @@ ul {
 		width: 100%;
 		text-align: center;
 	}
+	.info__left a {
+		font-size: 14px;
+		margin: 0 5px;
+	}
 	.info__right {
 		width: 100%;
 		text-align: center;
+	}
+	.info__right ul li a {
+	    padding: 10px 8px;
 	}
 	.r--header {
 		width: 100%;
@@ -677,7 +684,7 @@ ul {
 		width: 100%;
 	}
 	.menu .menu__item a {
-		padding: 5px 10px;
+		padding: 5px 8px;
 	}
 	.r--header .menu--icon {
 		width: 100%;
@@ -694,7 +701,9 @@ ul {
 	}
 	.r--banner .banner__box {
 		width: 100%;
-		height: 470px;
+	}
+	.banner__box .box__image {
+		height: auto;
 	}
 	.r--delivery {
 		width: 95%;
@@ -705,15 +714,19 @@ ul {
 	}
 	.r--delivery .deli__box {
 		width: 45%;
-		margin-bottom: 30px;
+		margin-bottom: 15px;
 	}
 	.r--main {
 		width: 95%;
 		margin: auto;
 	}
+	.main__title {
+    	padding: 25px 0 15px 0;
+	}
 	.r--main .box__up .up__1 {
 		height: auto;
 		flex-wrap: wrap;
+		margin-bottom: 20px;
 	}
 	.box__up .up__1 .up__left--1 {
 		width: 100%;
@@ -722,7 +735,7 @@ ul {
 	}
 	.box__up .up__1 .up__right--1 {
 		width: 100%;
-		margin-top: 30px;
+		margin-top: 20px;
 		max-height: 330px;
     	overflow: hidden;
 	}
@@ -737,9 +750,12 @@ ul {
 	}
 	.box__up .up__2 .up__right--2 {
 		width: 100%;
-		margin-top: 30px;
+		margin-top: 20px;
 		max-height: 330px;
    		overflow: hidden;
+	}
+	.main__title.title--config {
+		padding: 25px 0;
 	}
 	.r--filter form {
 		flex-wrap: wrap;
@@ -750,15 +766,25 @@ ul {
 	}
 	.r--filter form .f__item.btn--filter {
 		width: 95%;
+		margin-bottom: 0;
 	}
 	.box__md .md__1box {
 		width: 48%;
+		margin-top: 20px;
 	}
 	.box__do .do__1box {
 		width: 100%;
+		margin-bottom: 20px;
+		margin-top: 0;
 	}
 	.box__do .do__1box .box__right {
 		width: calc(100% - 100px);
+	}
+	.box__do .do__1box .box__right .image {
+		height: 150px;
+	}
+	.box__do .do__1box .box__right .r--title {
+		line-height: 1;
 	}
 	.r--footer {
 		width: 100%;

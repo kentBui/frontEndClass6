@@ -1,0 +1,756 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+// color
+$colorLink: rgb(41, 4, 255);
+$colorText: #333;
+$colorTextMuted: #414141;
+$colorBgButton: #ff6f61;
+$colorTitle:#111;
+$colorWhite: #fff;
+$colorBorder: rgb(182, 174, 174);
+$bgColorForm:#f2f2f2;
+// @media
+$mobile-width: 512px;
+
+@mixin mobile {
+    @media (min-width: 0) and (max-width: #{$mobile-width}) {
+        @content;
+    }
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1,h2,h3,h4,h5,h6,p {
+    font-size: 16px;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: $colorText;
+    font-size: 16px;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+ul {
+    list-style-type: none;
+}
+.config--4line {
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    .r__header {
+        width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        background-image: url(../images/gray-surface-450055.jpg);
+        @include mobile {
+            width: 100%;
+        }
+        .h__left {
+            width: 40%;
+            text-align: left;
+            @include mobile {
+                width: 100%;
+                text-align: center;
+            }
+            img {
+                width: 15px;
+                height: 17px;
+                display: inline-block;
+                @include mobile {
+                    width: 12px;
+                    height: 15px;
+                }
+            }
+            a {
+                color: $colorWhite;
+                text-transform: uppercase;
+                margin: 0 13px;
+                &:hover {
+                    color: $colorLink;
+                }
+                @include mobile {
+                    margin: 0 8px;
+                    font-size: 14px;
+                }
+            }
+            
+        }
+        .h__right {
+            width: 60%;
+            text-align: right;
+            @include mobile {
+                width: 100%;
+                text-align: center;
+            }
+            ul {
+                li {
+                    display: inline;
+                    a {
+                        color: $colorWhite;
+                        padding: 10px;
+                        &:hover {
+                            color: $colorLink;
+                        }
+                        @include mobile {
+                            padding: 10px 8px;
+                            font-size: 14px;
+                        }
+                    }
+                    &:first-child {
+                        a {
+                            padding-left: 0;
+                        }
+                    }
+                    &:last-child {
+                        a {
+                            padding-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .r__menu {
+        width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include mobile {
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        .m__logo {
+            width: 25%;
+            @include mobile {
+                width: 100%;
+                text-align: center;
+            }
+            a {
+                line-height: 90px;
+                font-size: 2rem;
+                transition: all 0.3s ease;
+                @include mobile {
+                    line-height: 60px;
+                }
+                &:hover {
+                    color: $colorLink;
+                }
+            }
+        }
+        .m__menu__main {
+            width: 50%;
+            text-align: center;
+            @include mobile {
+                width: 100%;
+            }
+            ul {
+                .main__item {
+                    display: inline-block;
+                    position: relative;
+                    a {
+                        line-height: 90px;
+                        padding: 0 20px;
+                        @include mobile {
+                            line-height: 35px;
+                            padding: 0px 3px;
+                        }
+                    }
+                    &:nth-child(3) {
+                        ul {
+                            position: absolute;
+                            top: 120%;
+                            left: 0;
+                            visibility: hidden;
+                            opacity: 0;
+                            transition: all 0.3s linear;
+                            width: 100%;
+                            @include mobile {
+                                width: 160px;
+                                display: flex;
+                                flex-wrap: wrap;
+                            }
+                            .sub__item {
+                                background-color: $colorBgButton;
+                                @include mobile {
+                                    width: 75px;
+                                    height: 30px;
+                                    border-left: 1px solid #aaa;
+                                }
+                                a {
+                                    width: 100%;
+                                    line-height: 30px;
+                                    padding: 0;
+                                    font-size: 14px;
+                                    color: $colorWhite;
+                                    transition: all 0.3s ease;
+                                    border-top: 1px dashed $colorTextMuted;
+                                    &:hover {
+                                        color: $colorText;
+                                    }
+                                }
+                            }
+                        }
+                        &:hover {
+                            ul {
+                                visibility: inherit;
+                                opacity: 1;
+                                top: 100%;
+                            }
+                        }
+                    }
+                    &:hover {
+                        background-color: $colorBgButton;
+                        a {
+                            color: $colorWhite;
+                        }
+                    }
+                }
+            }
+        }
+        .m__icon {
+            width: 25%;
+            text-align: right;
+            @include mobile {
+                width: 100%;
+                text-align: center;
+            }
+            ul {
+                li {
+                    display: inline-block;
+                    margin-left: 20px;
+                    a {
+                        font-weight: 300;
+                        line-height: 90px;
+                        @include mobile {
+                            line-height: 40px;
+                        }
+                        &:hover {
+                            color: $colorLink;
+                        }
+                    }
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+
+    }
+    .r__banner {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        @include mobile{
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .b__box {
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-blend-mode: color;
+            background-repeat: no-repeat;
+            background-color: rgba(0,0,0,0.3);
+            &:nth-child(1) {
+                background-image: url("../images/cover-1.jpg");
+            }
+            &:nth-child(2) {
+                background-image: url("../images/cover-2.jpg");
+            }
+            &:nth-child(3) {
+                background-image: url("../images/cover-3.jpg");
+            }
+            .box__content {
+                text-align: center;
+                p {
+                    font-size: 25px;
+                    color: $colorWhite;
+                    text-transform: uppercase;
+                    margin-bottom: 15px;
+                }
+                a {
+                    font-size: 14px;
+                    color: $colorText;
+                    text-transform: capitalize;
+                    background-color: $colorWhite;
+                    padding: 5px 10px;
+                    transition: all 0.3s ease;
+                    &:hover {
+                        background-color: $colorBgButton;
+                        color: $colorWhite;
+                    }
+                }
+            }
+        }
+    }
+    .r__delivery {
+        width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-bottom: 1px solid $colorBorder ;
+        margin-top: 20px;
+        @include mobile {
+            width: 95%;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .deli__box {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            .box__left {
+                width: 10%;
+                color: red;
+                font-size: 14px;
+            }
+            .box__right {
+                width: 85%;
+                .r--title {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    @include mobile {
+                        font-size: 14px;
+                        text-transform: capitalize;
+                    }
+                }
+                .r--info {
+                    font-size: 14px;
+                    @include mobile {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .r__main {
+        width: 1200px;
+        margin: auto;
+        @include mobile{
+            width: 95%;
+        }
+        .m__title {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            @include mobile{
+                padding: 15px 0;
+            }
+            .title--up {
+                text-transform: capitalize;
+                color: $colorTitle;
+                font-size: 32px;
+                font-weight: 700;
+                transition: all 0.3s linear;
+                &:hover {
+                    color: $colorLink;
+                }
+            }
+        }
+        .m__up {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .up__box {
+                height: 35vh;
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                margin-top: 25px;
+                @include mobile{
+                    margin-top: 15px;
+                }
+                a {
+                    font-size: 22px;
+                    font-weight: 700;
+                    transition: all 0.5s linear;
+                }
+                &:nth-child(1) {
+                    width: 30%;
+                    background-image: url(../images/product-1.jpg);
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 0;
+                    @include mobile {
+                        width: 100%;
+                    }
+                    a {
+                        color: $colorWhite;
+                    }
+                }
+                &:nth-child(2) {
+                    width: 66%;
+                    background-image: url(../images/product-2.jpg);
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-left: 30px;
+                    margin-top: 0;
+                    @include mobile {
+                        width: 100%;
+                        margin-top: 15px;
+                    }
+                    a {
+                        color: $colorText;
+                    }
+                }
+                &:nth-child(3) {
+                    width: 66%;
+                    background-image: url(../images/product-3.jpg);
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-left: 30px;
+                    @include mobile {
+                        width: 100%;
+                    }
+                    a {
+                        color: $colorText;
+                    }
+                }
+                &:nth-child(4) {
+                    width: 30%;
+                    background-image: url(../images/product-4.jpg);
+                    justify-content: center;
+                    align-items: center;
+                    @include mobile {
+                        width: 100%;
+                    }
+                    a {
+                        color: $colorWhite;
+                    }
+                }
+                &:hover {
+                    a {
+                        color: $colorLink;
+                        padding-left: 40px;
+                    }
+                }
+            }
+        }
+        .m__filter {
+            width: 100%;
+            background-color: $bgColorForm;
+            padding: 10px 0;
+            border-radius: 5px;
+            .filterBy {
+                width: 100%;
+                margin: auto;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                .f__item {
+                    width: 18%;
+                    outline: none;
+                    padding: 7px 10px;
+                    border: none;
+                    border-radius: 30px;
+                    cursor: pointer;
+                    font-family: inherit;
+                    font-size: 18px;
+                    @include mobile {
+                        width: 45%;
+                        margin-bottom: 15px;
+                    }
+                }
+                .btn--filter {
+                    background-color: $colorBgButton;
+                    color: $colorWhite;
+                    text-transform: uppercase;
+                    transition: all 0.4s linear;
+                    @include mobile {
+                        width: 90%;
+                        margin-bottom: 0;
+                    }
+                    &:hover {
+                        color: $colorTitle;
+                    }
+                }
+            }
+        }
+        .m__mid {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .mid__box {
+                width: 24%;
+                margin-top: 50px;
+                @include mobile{
+                    width: 48%;
+                    margin-top: 15px;
+                }
+                .__box__image {
+                    position: relative;
+                    overflow: hidden;
+                    a {
+                        img {
+                            transition: all 0.3s linear;
+                        }
+                    }
+                    ul {
+                        width: 100%;
+                        text-align: center;
+                        position: absolute;
+                        bottom: -20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: all 0.3s linear;
+                        li {
+                            display: inline;
+                            margin: 0 5px;
+                            a {
+                                color: $colorLink;
+                                &:hover {
+                                    color: $colorBgButton;
+                                }
+                            }
+                        }
+                    }
+                    &:hover {
+                        a {
+                            img {
+                                transform: scale(1.3);
+                            }
+                        }
+                        ul {
+                            visibility: inherit;
+                            bottom: 10px;
+                            opacity: 1;
+                        }
+                    }
+                }
+                .__box__title {
+                    font-size: 22px;
+                    font-weight: bold;
+                    color: $colorTitle;
+                    margin-top: 5px;
+                    &:hover {
+                        color: $colorLink;
+                    }
+                    @include mobile{
+                        margin-top: 0;
+                        font-size: 18px;
+                    }
+                }
+                span {
+                    text-decoration: line-through;
+                    color: $colorText;
+                    font-size: 14px;
+                }
+                .__box__price {
+                    display: inline-block;
+                    margin-top: 10px;
+                    font-size: 14px;
+                    @include mobile{
+                        margin-top: 5px;
+                    }
+                }
+                &:first-child {
+                    .__box__price {
+                        color: red;
+                    }
+                }
+                &:nth-child(n+2) {
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .m__down {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .down__box {
+                width: 48%;
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0 20px 0;
+                @include mobile{
+                    width: 100%;
+                   margin: 0 0 20px 0;
+                }
+                .__left {
+                    width: 80px;
+                    @include mobile{
+                        width: 60px;
+                    }
+                    .title--day {
+                        width: 100%;
+                        background-color: $colorTitle;
+                        color: $colorWhite;
+                        text-align: center;
+                        .d--big {
+                            font-size: 50px;
+                            @include mobile{
+                               font-size: 36px;
+                            }
+                        }
+                        .d--small {
+                            font-size: 16px;
+                            @include mobile{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    .push--share {
+                        text-align: center;
+                        position: relative;
+                        a {
+                            width: 100%;
+                            line-height: 35px;
+                            background-color: $colorBgButton;
+                            color: $colorWhite;
+                            @include mobile{
+                                line-height: 30px;
+                                font-size: 14px;
+                            }
+                        }
+                        ul {
+                            position: absolute;
+                            top: 0;
+                            left: 120%;
+                            opacity: 0;
+                            visibility: hidden;
+                            display: flex;
+                            transition: all 0.4s linear;
+                            li {
+                                display: inline-block;
+                                width: 35px;
+                                height: 35px;
+                                border-left: 1px dotted $colorTextMuted;
+                                @include mobile{
+                                    width: 30px;
+                                    height: 30px;
+                                }
+                            }
+                        }
+                        &:hover {
+                            ul {
+                                left: 100%;
+                                opacity: 1;
+                                visibility: inherit;
+                            }
+                        }
+                    }
+                }
+                .__right {
+                    width: calc(100% - 100px);
+                    @include mobile{
+                        width: calc(100% - 70px);
+                    }
+                    .image {
+                        width: 100%;
+                        height: 200px;
+                        overflow: hidden;
+                        @include mobile{
+                            height: 150px;
+                        }
+                    }
+                    .r--title {
+                        color: $colorTitle;
+                        font-size: 22px;
+                        font-weight: 700;
+                        &:hover {
+                            color: $colorLink;
+                        }
+                        @include mobile{
+                            font-size: 18px;
+                        }
+                    }
+                    .r--content {
+                        font-size: 14px;
+                        color: $colorText;
+                        margin-top: 5px;
+                        margin-bottom: 8px;
+                    }
+                    .sign {
+                        color: $colorTextMuted;
+                    }
+                }
+            }
+        }
+    }
+    .r__footer {
+        width: 100%;
+        background-color: $bgColorForm;
+        margin-top: 20px;
+        @include mobile{
+            margin-top: 0;
+        }
+        .f__content {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            @include mobile{
+                width: 95%;
+            }
+            .f__box {
+                width: 20%;
+                @include mobile{
+                    width: 40%;
+                }
+                .f__title {
+                    width: 100%;
+                    border-bottom: 1px solid $colorTextMuted;
+                    a {
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: $colorTitle;
+                        text-transform: capitalize;
+                        margin-top: 10px;
+                        padding: 10px 0;
+                        &:hover {
+                            color: $colorLink;
+                        }
+                    }
+                }
+                ul {
+                    .f__item {
+                        margin: 5px 0;
+                        a {
+                            color: $colorText;
+                            &:hover {
+                                color: $colorLink;
+                                text-decoration: underline;
+                            }
+                            @include mobile{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .f__sign {
+            margin-top: 20px;
+            text-align: center;
+            color: $colorWhite;
+            background-color: $colorTitle;
+            line-height: 50px;
+        }
+    }
+}
