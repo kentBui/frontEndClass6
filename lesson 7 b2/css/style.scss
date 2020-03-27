@@ -1,0 +1,651 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+h1,h2,h3,h4,h5,h6,p {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+button {
+    outline: none;
+    border: none;
+}
+$colorMenu: #7D7D7D;
+$colorMenu1:#4E4E4E;
+$colorBlack: #000;
+$colorWhite:#fff;
+$colorText:#333;
+$colorLight:#F5F5F5;
+$colorTextMuted: #414141;
+$colorLighter: #aaa;
+$colorLink: rgb(13, 17, 241);
+$colorBg: #D0A056;
+$mobileWidth: 535px;
+@mixin mobile {
+    @media (min-width:0) and (max-width:#{$mobileWidth}) {
+        @content;        
+    }
+}
+@mixin keyframes($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@include keyframes(turnRound) {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.container {
+    width: 100%;
+    .r__header {
+        width: 100%;
+        height: 100vh;
+        background-image: url(../images/logo.jpg);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .header__content {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            @include mobile {
+                width: 100%;
+            }
+            .h__left {
+                width: 80px;
+                height: 80px;
+                color: $colorMenu;
+                font-size: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: left;
+                transform: translate();
+                animation: turnRound 5s linear infinite;
+                // tao icon xoay tron
+            }
+            .h__right {
+                width: calc(100% - 80px);
+                text-align: right;
+                ul {
+                    li {
+                        display: inline;
+                        margin-left: 25px;
+                        a {
+                            color: $colorMenu;
+                            line-height: 80px;
+                            &:hover {
+                                color: $colorWhite;
+                            }
+                        }
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                        &:nth-child(4){
+                            position: relative;
+                            .cart {
+                                width: 400px;
+                                height: 320px;
+                                padding: 10px;
+                                background-color: $colorMenu;
+                                position: absolute;
+                                top: 150%;
+                                right: 0;
+                                visibility: hidden;
+                                opacity: 0;
+                                transition: all 0.4s linear;
+                                @include mobile {
+                                    transform: scale(0.7) translate(100px, -75px);
+                                }
+                                table {
+                                    border-collapse: collapse;
+                                    border: 1px solid #fff;
+                                    tr {
+                                        td {
+                                            border: 1px solid #fff;
+                                            padding: 10px;
+                                            height: 60px;
+                                            text-align: center;
+                                            img {
+                                                width: 30px;
+                                                height: 40px;
+                                                margin: auto;
+                                            }
+                                            &:nth-child(1) {
+                                                width: 65px;
+                                            }
+                                            &:nth-child(2) {
+                                                width: 140px;
+                                                color: $colorWhite;
+                                                font-size: 15px;
+                                            }
+                                            &:nth-child(3) {
+                                                width: 70px;
+                                                span {
+                                                    font-size: 14px;
+                                                    color: $colorWhite;
+                                                }
+                                            }
+                                            &:nth-child(4) {
+                                                width: 65px;
+                                                form {
+                                                    input {
+                                                        width: 100%;
+                                                    }
+                                                }
+                                            }
+                                            &:nth-child(5) {
+                                                width: 40px;
+                                                form {
+                                                    button {
+                                                        width: 19px;
+                                                        height: 19px;
+                                                        line-height: 19px;
+                                                        border-radius: 50%;
+                                                        font-weight: bold;
+                                                        cursor: pointer;
+                                                        &:hover {
+                                                            background-color: $colorBlack;
+                                                            color: $colorWhite;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            &[colspan="5"] {
+                                                height: 55px;
+                                                form {
+                                                    button {
+                                                        padding: 5px 10px;
+                                                        outline: none;
+                                                        cursor: pointer;
+                                                        font-family: inherit;
+                                                        background-color: $colorBlack;
+                                                        color: $colorWhite;
+                                                        &:hover {
+                                                            background-color: $colorWhite;
+                                                            color: $colorBlack;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &:nth-child(even) {
+                                            background-color: #4E4E4E;
+                                        }
+                                    }
+                                }
+                            }
+                            &:hover {
+                                .cart {
+                                    visibility: inherit;
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                        &:nth-child(5) {
+                            position: relative;
+                            ul {
+                                width: 120px;
+                                position: absolute;
+                                top: 150%;
+                                right: 0;
+                                display: flex;
+                                flex-direction: column;
+                                text-align: left;
+                                background-color: $colorMenu;
+                                visibility: hidden;
+                                opacity: 0;
+                                transition: all 0.4s linear;
+                                li {
+                                    width: 100%;
+                                    display: inline-block;
+                                    margin-left: 0;
+                                    a {
+                                        display: inline-block;
+                                        width: 100%;
+                                        line-height: 30px;
+                                        padding: 0 10px;
+                                        color: $colorWhite;
+                                        &:hover {
+                                            background-color: $colorMenu1;
+                                        }&:hover {
+                                        background-color: $colorMenu1;
+                                    }
+                                    }
+                                }
+                            }
+                            &:hover {
+                                ul {
+                                    opacity: 1;
+                                    visibility: inherit;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .r__main--up {
+        width: 1200px;
+        margin: auto;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include mobile {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .m__filter {
+            width: 200px;
+            order: 1;
+            @include mobile {
+                width: 95%;
+                margin: auto;
+                order: 2;
+            }
+            h2 {
+                color: $colorText;
+                border-bottom: 1px solid $colorTextMuted;
+                font-size: 18px;
+                text-transform: capitalize;
+            }
+            .filter--item {
+                border-bottom: 1px dashed $colorLighter;
+                padding-bottom: 10px;
+                @include mobile {
+                    padding-bottom: 7px;
+                }
+                h3 {
+                    color: $colorText;
+                    text-transform: capitalize;
+                    font-size: 16px;
+                    margin-top: 15px;
+                }
+                form {
+                    ul {
+                        .item {
+                            background-color: $colorLight;
+                            margin: 5px 0;
+                            padding: 5px 7px;
+                            display: flex;
+                            align-items: center;
+                            border-radius: 3px;
+                            border: 1px solid $colorLighter;
+                            input {
+                                appearance: none;
+                                outline: none;
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 3px;
+                                background-color: $colorMenu;
+                                margin-right: 10px;
+                                &:checked {
+                                    background-color: $colorBlack;
+                                }
+                            }
+                            label {
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                }
+                &:last-child {
+                    border: none;
+                    @include mobile {
+                        border-bottom: 1px dashed $colorLighter;
+                    }
+                }
+            }
+        }
+        .m__products {
+            width: 970px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            order: 2;
+            @include mobile {
+                width: 95%;
+                margin: auto;
+                order: 1;
+            }
+            .product__item {
+                width: 220px;
+                margin-bottom: 30px;
+                @include mobile {
+                    width: 48%;
+                    margin-bottom: 20px;
+                }
+                .item--image {
+                    width: 100%;
+                    height: 330px;
+                    overflow: hidden;
+                    position: relative;
+                    transition: all 0.3s linear;
+                    @include mobile {
+                        height: 280px;
+                    }
+                    a {
+                        width: 100%;
+                        img {
+                            width: 100%;
+                            height: 330px;
+                            object-fit: cover;
+                        }
+                    }
+                    .add-cart {
+                        width: 100%;
+                        position: absolute;
+                        bottom: -40px;
+                        left: 0;
+                        text-align: center;
+                        line-height: 40px;
+                        background-color: rgba(0,0,0,0.7);
+                        color: $colorWhite;
+                        font-size: 14px;
+                        transition: all 0.3s linear;
+                        cursor: pointer;
+                    }
+                }
+                &:hover {
+                    .item--image {
+                        box-shadow: 0 0 3px 2px $colorLighter;
+                        padding:10px;
+                    }
+                    .add-cart {
+                        bottom: 0;
+                    }
+                }
+                .item--info {
+                    font-size: 16px;
+                    color: $colorText;
+                    margin: 7px 0;
+                    &:hover {
+                        color: $colorLink;
+                    }
+                }
+                .item--price {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .r__banner {
+        width: 100%;
+        background-image: url(../images/background.jpg);
+        @include mobile {
+            margin-top: 20px;
+        }
+        .banner__content {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            @include mobile {
+                width: 100%;
+            }
+            .banner__left {
+                width: 50%;
+                text-align: left;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                line-height: 75px;
+                @include mobile {
+                    width: 100%;
+                    justify-content: center;
+                    line-height: 50px;
+                }
+                i {
+                    color: yellow;
+                }
+                p {
+                    color: $colorWhite;
+                    margin: 0 10px;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    @include mobile {
+                        font-size: 16px;
+                    }
+                }
+            }
+            .banner__right {
+                width: 50%;
+                line-height: 75px;
+                text-align: right;
+                @include mobile {
+                    width: 100%;
+                    text-align: center;
+                    line-height: 50px;
+                }
+                form {
+                    width: 100%;
+                    input {
+                        width: 50%;
+                        height: 35px;
+                        font-family: inherit;
+                        padding-left: 10px;
+                        @include mobile {
+                            height: 30px;
+                        }
+                    }
+                    button {
+                        font-family: inherit;
+                        height: 35px;
+                        padding: 0 10px;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                        background-color: $colorBg;
+                        color: $colorWhite;
+                        @include mobile {
+                            height: 30px;
+                        }
+                        i {
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .r__news {
+        width: 1200px;
+        margin: auto;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include mobile {
+            width: 95%;
+            margin: auto;
+            margin-top: 20px;
+        }
+        .news__item {
+            width: 575px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            @include mobile {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .new__left {
+                width: 80px;
+                .new__date {
+                    width: 100%;
+                    text-align: center;
+                    background-color: $colorBlack;
+                    color: $colorWhite;
+                    .d--day {
+                        font-size: 40px;
+                    }
+                    p {
+                        font-size: 14px;
+                    }
+                }
+                .new__share {
+                    width: 100%;
+                    position: relative;
+                    text-align: center;
+                    background-color: $colorBg;
+                    a {
+                        line-height: 35px;
+                        color: $colorText;
+                        &:hover {
+                            color: $colorLight;
+                        }
+                    }
+                    ul {
+                        position: absolute;
+                        top: 0;
+                        left: 120%;
+                        display: flex;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: all 0.3s linear;
+                        li {
+                            width: 35px;
+                            height: 35px;
+                            background-color: $colorBg;
+                            border-left: 1px dashed $colorText;
+                            a {
+                                color: $colorText;
+                                &:hover {
+                                    color: $colorLight;
+                                }
+                            }
+                        }
+                    }
+                    &:hover {
+                        ul {
+                        visibility: inherit;
+                        opacity: 1;
+                        left: 100%;
+                        }
+                    }
+                }
+            }
+            .new__right {
+                width: calc(100% - 100px);
+                .image {
+                    width: 100%;
+                    a {
+                        img {
+                            width: 100%;
+                            height: 200px;
+                            object-fit: cover;
+                            @include mobile {
+                                height: 160px;
+                            }
+                        }
+                    }
+                }
+                .info {
+                    .new--title {
+                        font-size: 18px;
+                        color: $colorText;
+                        margin-top: 7px;
+                        font-weight: 700;
+                        &:hover {
+                            color: $colorLink;
+                        }
+                    }
+                    .new--para {
+                        font-size: 14px;
+                        color: $colorText;
+                        margin: 7px 0;
+                    }
+                    .sign {
+                        color: $colorTextMuted;
+                    }
+                }
+            }
+        }
+    }
+    .r__footer {
+        width: 100%;
+        background-color: $colorLight;
+        border-top: 1px solid $colorTextMuted;
+        .footer__info {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            @include mobile {
+                width: 95%;
+                margin: auto;
+            }
+            .footer__item {
+                width: 20%;
+                @include mobile {
+                    width: 45%;
+                }
+                h3 {
+                    border-bottom: 1px solid gray;
+                    padding-bottom: 5px;
+                    text-transform: capitalize;
+                }
+                ul {
+                    margin-top: 5px;
+                    li {
+                        margin: 3px 0;
+                        a {
+                            color: $colorText;
+                            font-size: 14px;
+                            &:hover {
+                                color: $colorLink;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer__sign {
+            text-align: center;
+            line-height: 45px;
+            background-color: $colorBlack;
+            color: $colorWhite;
+        }
+    }
+}
+.config--4line {
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+}
+.config--2line {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+}
