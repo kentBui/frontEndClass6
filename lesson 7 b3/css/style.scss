@@ -30,7 +30,7 @@ $colorBg: #F9840E;
 $colorLighter: #FBFBFB;
 $colorBlack: #000;
 
-$mobile-width: 575px;
+$mobile-width: 475px;
 // background-image: linear-gradient(to right, #ffa600, #fe9204, #fb7d0f, #f66719, #f05022);
 // background-image: linear-gradient(to bottom, #ffa600, #fe9204, #fb7d0f, #f66719, #f05022);
 // background-image: linear-gradient(to top, #ffa600, #fe9204, #fb7d0f, #f66719, #f05022);
@@ -119,7 +119,7 @@ header {
                     .open--bar {
                         display: block;
                         width: 50%;
-                        background-color: $colorWhite;
+                        background-color: rgba(0,0,0,.4);
                         position: absolute;
                         top: 100%;
                         right: 50px;
@@ -127,15 +127,21 @@ header {
                         visibility: hidden;
                         opacity: 0;
                         transition: all 0.3s;
+                        @include mobile {
+                            width: 100%;
+                        }
                         li {
                             margin: 8px 0;
                             padding: 5px 0;
                             display: block;
                             line-height: 1;
                             text-align: center;
-                            color: $colorBlack;
+                            color: $colorWhite;
                             &:first-child {
                                 border-bottom: 1px dashed $colorTextMuted;
+                            }
+                            &:hover {
+                                color: $colorBg;
                             }
                         }
                     }
@@ -255,9 +261,13 @@ main {
             justify-content: space-between;
             @include mobile {
                 padding: 10px;
+                flex-wrap: wrap;
             }
             .wraper__left {
                 width: 40%;
+                @include mobile {
+                    width: 100%;
+                }
                 ul {
                     .item {
                         display: flex;
@@ -271,13 +281,15 @@ main {
                         margin-bottom: 25px;
                         cursor: pointer;
                         .icon {
+                            text-align: center;
                             width: 15%;
                         }
                         .title {
                             width: 80%;
                             font-weight: bold;
+                            user-select: none;
                             @include mobile {
-                                font-size: calc(12px + 0.5vmin);
+                                font-size: calc(12px + 1vmin);
                             }
                         }
                         &:hover {
@@ -293,6 +305,9 @@ main {
             }
             .wraper__right {
                 width: 55%;
+                @include mobile {
+                    width: 100%;
+                }
                 ul {
                     .content {
                         display: none;
