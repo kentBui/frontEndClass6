@@ -68,7 +68,7 @@ header .r__banner {
   background-image: -webkit-gradient(linear, left top, right top, from(#ffa600), color-stop(#fe9204), color-stop(#fb7d0f), color-stop(#f66719), to(#f05022));
   background-image: linear-gradient(to right, #ffa600, #fe9204, #fb7d0f, #f66719, #f05022);
   position: fixed;
-  z-index: 99;
+  z-index: 1;
 }
 
 header .r__banner .container {
@@ -85,8 +85,21 @@ header .r__banner .container {
           align-items: center;
 }
 
+@media (min-width: 0) and (max-width: 575px) {
+  header .r__banner .container {
+    width: 100%;
+  }
+}
+
 header .r__banner .container .logo {
   width: 240px;
+}
+
+@media (min-width: 0) and (max-width: 575px) {
+  header .r__banner .container .logo {
+    width: 50%;
+    text-align: left;
+  }
 }
 
 header .r__banner .container .logo a img {
@@ -97,6 +110,67 @@ header .r__banner .container .menu {
   width: calc(100% - 240px);
 }
 
+header .r__banner .container .menu .menuMobile {
+  display: none;
+  width: 100%;
+  line-height: 80px;
+  text-align: right;
+  cursor: pointer;
+  position: relative;
+}
+
+@media (min-width: 0) and (max-width: 575px) {
+  header .r__banner .container .menu .menuMobile {
+    display: inline-block;
+  }
+}
+
+header .r__banner .container .menu .menuMobile .push--bar {
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+header .r__banner .container .menu .menuMobile .push--bar i {
+  margin-right: 50px;
+  font-size: calc(12px + 1.5vmin);
+  color: #fff;
+}
+
+header .r__banner .container .menu .menuMobile .open--bar {
+  display: block;
+  width: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  right: 50px;
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+header .r__banner .container .menu .menuMobile .open--bar li {
+  margin: 8px 0;
+  padding: 5px 0;
+  display: block;
+  line-height: 1;
+  text-align: center;
+  color: #000;
+}
+
+header .r__banner .container .menu .menuMobile .open--bar li:first-child {
+  border-bottom: 1px dashed #414141;
+}
+
+header .r__banner .container .menu .menuMobile .active--bar {
+  top: 80%;
+  visibility: inherit;
+  opacity: 1;
+}
+
 header .r__banner .container .menu ul {
   width: 100%;
   display: -webkit-box;
@@ -105,6 +179,12 @@ header .r__banner .container .menu ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media (min-width: 0) and (max-width: 575px) {
+  header .r__banner .container .menu ul {
+    display: none;
+  }
 }
 
 header .r__banner .container .menu ul li {
@@ -126,13 +206,29 @@ header .content {
   position: relative;
 }
 
+@media (min-width: 0) and (max-width: 575px) {
+  header .content {
+    width: 100%;
+  }
+}
+
 header .content .figcaption {
   width: 45%;
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 2%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+@media (min-width: 0) and (max-width: 575px) {
+  header .content .figcaption {
+    width: 90%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 header .content .figcaption h4 {
@@ -193,6 +289,12 @@ main .container {
   margin: auto;
 }
 
+@media (min-width: 0) and (max-width: 575px) {
+  main .container {
+    width: 95%;
+  }
+}
+
 main .container h5 {
   text-align: center;
   font-size: calc(12px + 1vmin);
@@ -213,11 +315,17 @@ main .container .wraper {
           justify-content: space-between;
 }
 
+@media (min-width: 0) and (max-width: 575px) {
+  main .container .wraper {
+    padding: 10px;
+  }
+}
+
 main .container .wraper .wraper__left {
   width: 40%;
 }
 
-main .container .wraper .wraper__left ul li {
+main .container .wraper .wraper__left ul .item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -236,21 +344,27 @@ main .container .wraper .wraper__left ul li {
   cursor: pointer;
 }
 
-main .container .wraper .wraper__left ul li .icon {
-  width: 10%;
+main .container .wraper .wraper__left ul .item .icon {
+  width: 15%;
 }
 
-main .container .wraper .wraper__left ul li .title {
-  width: 90%;
+main .container .wraper .wraper__left ul .item .title {
+  width: 80%;
   font-weight: bold;
 }
 
-main .container .wraper .wraper__left ul li:hover {
+@media (min-width: 0) and (max-width: 575px) {
+  main .container .wraper .wraper__left ul .item .title {
+    font-size: calc(12px + 0.5vmin);
+  }
+}
+
+main .container .wraper .wraper__left ul .item:hover {
   border: 2px solid #F9840E;
   color: #F9840E;
 }
 
-main .container .wraper .wraper__left ul .config {
+main .container .wraper .wraper__left ul .active {
   border: 2px solid #F9840E;
   color: #F9840E;
 }
@@ -259,17 +373,21 @@ main .container .wraper .wraper__right {
   width: 55%;
 }
 
-main .container .wraper .wraper__right ul li h6 {
+main .container .wraper .wraper__right ul .content {
+  display: none;
+}
+
+main .container .wraper .wraper__right ul .content h6 {
   font-size: calc(12px + 0.5vmin);
 }
 
-main .container .wraper .wraper__right ul li p {
+main .container .wraper .wraper__right ul .content p {
   margin-top: 10px;
   font-size: calc(12px + 0.3vmin);
 }
 
-main .container .wraper .wraper__right ul #content1, main .container .wraper .wraper__right ul #content2, main .container .wraper .wraper__right ul #content3 {
-  display: none;
+main .container .wraper .wraper__right ul .activeContent {
+  display: block;
 }
 
 footer {
@@ -291,8 +409,21 @@ footer .content {
       flex-wrap: wrap;
 }
 
+@media (min-width: 0) and (max-width: 575px) {
+  footer .content {
+    width: 95%;
+  }
+}
+
 footer .content .box {
   width: 30%;
+}
+
+@media (min-width: 0) and (max-width: 575px) {
+  footer .content .box {
+    width: 45%;
+    margin-bottom: 30px;
+  }
 }
 
 footer .content .box h5 {
@@ -331,6 +462,14 @@ footer .sign {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (min-width: 0) and (max-width: 575px) {
+  footer .sign {
+    width: 100%;
+  }
 }
 
 footer .sign .left {
@@ -338,6 +477,25 @@ footer .sign .left {
   text-align: left;
   color: #fff;
   font-size: calc(12px + 0.3vmin);
+}
+
+@media (min-width: 0) and (max-width: 575px) {
+  footer .sign .left {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+footer .sign .right {
+  width: 50%;
+  text-align: right;
+}
+
+@media (min-width: 0) and (max-width: 575px) {
+  footer .sign .right {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 footer .sign .right ul li {

@@ -71,15 +71,22 @@ header {
         height: 80px;
         background-image: linear-gradient(to right, #ffa600, #fe9204, #fb7d0f, #f66719, #f05022);
         position: fixed;
-        z-index: 99;
+        z-index: 1;
         .container {
             width: 1200px;
             margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            @include mobile {
+                width: 100%;
+            }
             .logo {
                 width: 240px;
+                @include mobile {
+                    width: 50%;
+                    text-align: left;
+                }
                 a {
                     img {
                         width: 100%;
@@ -88,10 +95,63 @@ header {
             }
             .menu {
                 width: calc(100% - 240px);
+                .menuMobile {
+                    display: none;
+                    width: 100%;
+                    line-height: 80px;
+                    text-align: right;
+                    cursor: pointer;
+                    position: relative;
+                    @include mobile {
+                        display: inline-block;
+                    }
+                    .push--bar {
+                        background: transparent;
+                        outline: none;
+                        border: none;
+                        cursor: pointer;
+                        i {
+                            margin-right: 50px;
+                            font-size: calc(12px + 1.5vmin);
+                            color: $colorWhite;
+                        }
+                    }
+                    .open--bar {
+                        display: block;
+                        width: 50%;
+                        background-color: $colorWhite;
+                        position: absolute;
+                        top: 100%;
+                        right: 50px;
+                        z-index: 100;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: all 0.3s;
+                        li {
+                            margin: 8px 0;
+                            padding: 5px 0;
+                            display: block;
+                            line-height: 1;
+                            text-align: center;
+                            color: $colorBlack;
+                            &:first-child {
+                                border-bottom: 1px dashed $colorTextMuted;
+                            }
+                        }
+                    }
+                    .active--bar {
+                        top:80%;
+                        visibility: inherit;
+                        opacity: 1;
+                    }
+                }
                 ul {
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
+                    @include mobile {
+                        display: none;
+                    }
                     li {
                         display: inline;
                         margin-left: 30px;
@@ -114,12 +174,21 @@ header {
         height: 100%;
         margin: auto;
         position: relative;
+        @include mobile {
+            width: 100%;
+        }
         .figcaption {
             width: 45%;
             position: absolute;
             top: 50%;
-            left: 0;
+            left: 2%;
             transform: translateY(-50%);
+            @include mobile {
+                width: 90%;
+                left:50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
             h4 {
                 font-size: calc(14px + 3vmin);
                 color: $colorWhite;
@@ -168,6 +237,9 @@ main {
     .container {
         width: 700px;
         margin: auto;
+        @include mobile {
+            width: 95%;
+        }
         h5 {
             text-align: center;
             font-size: calc(12px + 1vmin);
@@ -181,10 +253,13 @@ main {
             border-radius: 5px;
             display: flex;
             justify-content: space-between;
+            @include mobile {
+                padding: 10px;
+            }
             .wraper__left {
                 width: 40%;
                 ul {
-                    li {
+                    .item {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
@@ -196,28 +271,31 @@ main {
                         margin-bottom: 25px;
                         cursor: pointer;
                         .icon {
-                            width: 10%;
+                            width: 15%;
                         }
                         .title {
-                            width: 90%;
+                            width: 80%;
                             font-weight: bold;
+                            @include mobile {
+                                font-size: calc(12px + 0.5vmin);
+                            }
                         }
                         &:hover {
                             border: 2px solid $colorBg;
                             color: $colorBg;
                         }
                     }
-                    .config {
+                    .active {
                         border: 2px solid $colorBg;
                         color: $colorBg;
                     }
-                    
                 }
             }
             .wraper__right {
                 width: 55%;
                 ul {
-                    li {
+                    .content {
+                        display: none;
                         h6 {
                             font-size: calc(12px + 0.5vmin);
                         }
@@ -226,8 +304,8 @@ main {
                             font-size: calc(12px + 0.3vmin);
                         }
                     }
-                    #content1, #content2, #content3 {
-                        display: none;
+                    .activeContent {
+                        display: block;
                     }
                 }
             }
@@ -244,8 +322,15 @@ footer {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        @include mobile {
+            width: 95%;
+        }
         .box {
             width: 30%;
+            @include mobile {
+                width: 45%;
+                margin-bottom: 30px;
+            }
             h5 {
                 font-size: calc(12px + 0.5vmin);
                 color: $colorWhite;
@@ -278,13 +363,27 @@ footer {
         margin: auto;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
+        @include mobile {
+            width: 100%;
+        }
         .left {
             width: 50%;
             text-align: left;
             color: $colorWhite;
             font-size: calc(12px + 0.3vmin);
+            @include mobile {
+                width: 100%;
+                text-align: center;
+            }
         }
         .right {
+            width: 50%;
+            text-align: right;
+            @include mobile {
+                width: 100%;
+                text-align: center;
+            }
             ul {
                 li {
                     display: inline;
