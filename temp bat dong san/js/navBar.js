@@ -51,11 +51,11 @@ chevonLeftMain.addEventListener('click', function () {
 chevonLeftSub.addEventListener('click', function () {
     mainMenu.style.left = "-100%";
     chevonLeftMain.classList.add('active');
-    chevonLeftSub.classList.remove('active')
+    chevonLeftSub.classList.remove('active');
 })
 // open
 
-let layer = document.querySelector('.wrapper-all .layer')
+let layer = document.querySelector('.wrapper-all .layer');
 btnOpen.addEventListener('click', function () {
     navMobile.style.width = "300px";
     container.style.marginLeft = "300px";

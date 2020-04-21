@@ -1026,7 +1026,7 @@ $colorLink: blue;
 $colorChevonLeft: #111;
 $colorChevonLeftHover: rgb(71, 200, 243);
 $colorChevonRight: #111;
-$colorChevonRightHover: lightpink;
+$colorChevonRightHover: #bbb;
 $colorBgNav: #ddd;
 $colorText: #333;
 $colorBorder: #aaa;
@@ -1095,7 +1095,9 @@ $colorAsubHover: lightpink;
                 color: #333;
                 border-radius: 5px;
                 outline: none;
+                border: none;
                 font-size: 16px;
+                border-radius: 30px;
             }
             .btn-close {
                 width: 20%;
@@ -1148,6 +1150,7 @@ $colorAsubHover: lightpink;
                         border-left: 1px solid green;
                         &:hover {
                             background-color: $colorChevonRightHover;
+                            color: $colorAmainHover;
                         }
                     }
                     &:last-child {
@@ -1178,6 +1181,7 @@ $colorAsubHover: lightpink;
                                 border-left: 1px solid green;
                                 &:hover {
                                     background-color: $colorChevonRightHover;
+                                    color: $colorAmainHover;
                                 }
                             }
                             .child-menu {
@@ -1236,4 +1240,8 @@ $colorAsubHover: lightpink;
     user-select: none;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
     z-index: 999;
+    opacity: 0;
+    &.active-btn {
+        opacity: 1;
+    }
 }

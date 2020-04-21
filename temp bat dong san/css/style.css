@@ -1394,7 +1394,9 @@ h6 {
   color: #333;
   border-radius: 5px;
   outline: none;
+  border: none;
   font-size: 16px;
+  border-radius: 30px;
 }
 
 .nav-mobile .base .nav-up .btn-close {
@@ -1466,7 +1468,8 @@ h6 {
 }
 
 .nav-mobile .base .nav-menu .main-menu .item .chevon-right-main:hover {
-  background-color: lightpink;
+  background-color: #bbb;
+  color: #ff8f3f;
 }
 
 .nav-mobile .base .nav-menu .main-menu .item:last-child {
@@ -1507,7 +1510,8 @@ h6 {
 }
 
 .nav-mobile .base .nav-menu .main-menu .item .sub-menu .item-sub .chevon-right-sub:hover {
-  background-color: lightpink;
+  background-color: #bbb;
+  color: #ff8f3f;
 }
 
 .nav-mobile .base .nav-menu .main-menu .item .sub-menu .item-sub .child-menu {
@@ -1571,5 +1575,10 @@ h6 {
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
           box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
   z-index: 999;
+  opacity: 0;
+}
+
+.btn-scroll2top.active-btn {
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */

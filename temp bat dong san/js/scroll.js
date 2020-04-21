@@ -7,23 +7,16 @@ let header = document.getElementById('header');
 
 let prevPos = window.pageYOffset;
 
-window.onload = function btnAtTop() {
-    btnScroll.style.opacity = 0;
-}
 console.log(prevPos);
-if (prevPos < 10) {
-    btnScroll.style.opacity = 0;
-}
+
 window.onscroll = function () {
     let curPos = window.pageYOffset;
     if (curPos > prevPos) {
-        btnScroll.style.opacity = 0;
-        btnScroll.style.transition = "all 0.4s ease";
         header.style.display = "none";
+        btnScroll.classList.remove('active-btn');
     }
     else {
-        btnScroll.style.opacity = 1;
-        btnScroll.style.transition = "all 0.4s ease";
+        btnScroll.classList.add('active-btn');
         header.style.display = "";
     }
     prevPos = curPos;
@@ -43,8 +36,11 @@ window.onscroll = function () {
         header.style.top = 0;
         header.style.transition = "all 0.4s ease";
     }
+    btnScroll.addEventListener('click', function () {
+        body.scrollTop = 0;
+        ele.scrollTop = 0;
+    })
+    if (prevPos < 80) {
+        btnScroll.classList.remove('active-btn');
+    }
 }
-btnScroll.addEventListener('click', function () {
-    body.scrollTop = 0;
-    ele.scrollTop = 0;
-})
