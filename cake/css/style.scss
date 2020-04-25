@@ -1,0 +1,664 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+//color
+$colorTextWhite: #fff;
+$colorText: #333;
+$colorBg: #352724;
+$colorHover: rgb(228, 86, 4);
+$colorNav: #1a3a6b;
+//font-size
+$fontMenu: calc(16px + 0.5vmin);
+$fontH2: calc(16px + 3vmin);
+$fontH1: calc(16px + 4vmin);
+$fontP: calc(12px + 0.8vmin);
+$fontPMin: calc(12px + 0.5vmin);
+$fontMin: calc(12px + 0.3vmin);
+//width
+$widthMobile: 512px;
+$widthTablet: 812px;
+@mixin mobile {
+    @media (min-width: 0) and (max-width:#{$widthMobile}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width:#{$widthMobile}) and (max-width:#{$widthTablet}) {
+        @content;
+    }
+}
+
+//
+%info {
+    width: 1200px;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 35px;
+    @include mobile {
+        width: 100%;
+    }
+    @include tablet {
+        width: 100%;
+    }
+    .__content {
+        width: 48%;
+        color: $colorText;
+        text-align: center;
+        @include mobile {
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        @include tablet {
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        .title {
+            font-size: $fontH2;
+            font-family: "Dancing Script", sans-serif;
+        }
+        p {
+            font-size: $fontPMin;
+            margin-top: 5px;
+        }
+        .push--more {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: $colorBg;
+            color: $colorTextWhite;
+            font-size: 12px;
+            line-height: 1.2;
+            padding: 5px 10px;
+            border-radius: 3px;
+            user-select: none;
+            transition: all 0.3s ease;
+            &:hover {
+                background-color: $colorHover;
+            }
+        }
+    }
+    .__images {
+        width: 48%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        @include mobile {
+            width: 100%;
+        }
+        @include tablet {
+            width: 100%;
+        }
+        a {
+            max-width: 255px;
+            @include mobile {
+                max-width: 100%;
+                &:first-child {
+                    margin-bottom: 50px;
+                }
+            }
+            @include tablet {
+                max-width: 100%;
+                &:first-child {
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+}
+
+%product {
+    width: 100%;
+    height: 250px;
+    margin-top: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content {
+        text-align: center;
+        background-image: url(../images/vien.png);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        padding-bottom: 20px;
+        user-select: none;
+        h2 {
+            font-size: $fontH2;
+            color: $colorTextWhite;
+            font-weight: 300;
+        }
+    }
+}
+
+%iconPlus {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 50px;
+    text-align: center;
+    border-left: 1px solid $colorTextWhite;
+    font-size: 25px;
+}
+
+//
+.wrapper__header {
+    width: 100%;
+    height: 80vh;
+    background-image: url(../images/holiday2013_front.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    padding-top: 35px;
+    .row__menu {
+        width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include mobile {
+            width: 100%;
+        }
+        @include tablet {
+            width: 100%;
+        }
+        .logo {
+            width: 200px;
+            @include mobile {
+                margin: auto;
+            }
+            @include tablet {
+                margin: auto;
+            }
+            img {
+                width: 100%;
+            }
+        }
+        .menu {
+            width: 80%;
+            text-align: right;
+            @include mobile {
+                display: none;
+            }
+            @include tablet {
+                display: none;
+            }
+            ul {
+                li {
+                    display: inline-block;
+                    margin-left: 50px;
+                    line-height: 50px;
+                    a {
+                        font-size: $fontMenu;
+                        color: $colorTextWhite;
+                        transition: color 0.3s ease;
+                        font-weight: bold;
+                        &:hover {
+                            color: $colorHover;
+                        }
+                    }
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+    .row__content {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        color: $colorTextWhite;
+        text-align: center;
+        h2 {
+            font-size: 50px;
+            font-family: "Dancing Script", sans-serif;
+        }
+        h1 {
+            font-size: $fontH1;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+        h5 {
+            font-size: $fontP;
+            margin-top: 15px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: $colorText;
+            padding: 5px 10px;
+            background-color: $colorTextWhite;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            &:hover {
+                background-color: $colorHover;
+                color: $colorTextWhite;
+            }
+        }
+    }
+}
+
+.wrapper__main {
+    width: 100%;
+    .nav__mobile {
+        width: 100%;
+        background-color: $colorNav;
+        color: $colorTextWhite;
+        display: none;
+        @include mobile {
+            display: block;
+            position: sticky;
+            top: 0;
+        }
+        @include tablet {
+            display: block;
+            position: sticky;
+            top: 0;
+            .scroll-line {
+                width: 75px;
+                height: 0;
+                border-top: 2px solid $colorTextWhite;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 9;
+                transition: all 0.3s ease;
+            }
+        }
+        .icon--bar {
+            width: 100%;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            line-height: 55px;
+            cursor: pointer;
+            .btn-show {
+                line-height: 55px;
+            }
+            @include tablet {
+                display: none;
+            }
+        }
+        .menu-main {
+            display: none;
+            @include tablet {
+                display: block;
+                line-height: 50px;
+            }
+            .item-main {
+                line-height: 50px;
+                cursor: pointer;
+                border-top: 1px solid $colorTextWhite;
+                position: relative;
+                transition: all 0.3s ease;
+                @include tablet {
+                    border: none;
+                }
+                a {
+                    padding: 0 15px;
+                    @include tablet {
+                        font-size: $fontPMin;
+                    }
+                }
+                i {
+                    display: none;
+                    font-size: 12px;
+                    @include tablet {
+                        display: inline-block;
+                    }
+                }
+                .menu-sub {
+                    display: none;
+                    @include tablet {
+                        display: block;
+                        width: 150px;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        background-color: $colorText;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: all 0.3s ease;
+                    }
+                    .item-sub {
+                        line-height: 50px;
+                        cursor: pointer;
+                        border-top: 1px solid $colorTextWhite;
+                        position: relative;
+                        transition: all 0.3s ease;
+                        @include tablet {
+                            border: none;
+                            line-height: 40px;
+                            &:first-child {
+                                border-bottom: 1px solid $colorTextWhite;
+                            }
+                        }
+                        a {
+                            padding: 0 30px;
+                            @include tablet {
+                                padding-left: 15px;
+                                color: $colorTextWhite;
+                            }
+                        }
+                        ul {
+                            display: none;
+                            @include tablet {
+                                width: 150px;
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 100%;
+                                background-color: $colorText;
+                                visibility: hidden;
+                                opacity: 0;
+                                transition: all 0.3s ease;
+                            }
+                            li {
+                                line-height: 50px;
+                                cursor: pointer;
+                                border-top: 1px solid $colorTextWhite;
+                                transition: all 0.3s ease;
+                                @include tablet {
+                                    border: none;
+                                    line-height: 40px;
+                                    &:first-child {
+                                        border-bottom: 1px solid $colorTextWhite;
+                                    }
+                                }
+                                a {
+                                    padding: 0 45px;
+                                    @include tablet {
+                                        padding-left: 15px;
+                                        color: $colorTextWhite;
+                                    }
+                                }
+                                &:hover {
+                                    color: $colorHover;
+                                }
+                            }
+                            &.active1 {
+                                display: block;
+                            }
+                        }
+                        .span-sub {
+                            @extend %iconPlus;
+                            &:before {
+                                content: "+";
+                            }
+                            &.activeSpan1:before {
+                                content: "-";
+                                font-size: 35px;
+                            }
+                            @include tablet {
+                                display: none;
+                            }
+                        }
+                        &:hover {
+                            @include mobile {
+                                color: $colorHover;
+                            }
+                            @include tablet {
+                                ul {
+                                    visibility: inherit;
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                    &.active {
+                        display: block;
+                    }
+                }
+                .span-main {
+                    @extend %iconPlus;
+                    &:before {
+                        content: "+";
+                    }
+                    &.activeSpan:before {
+                        content: "-";
+                        font-size: 35px;
+                    }
+                    @include tablet {
+                        display: none;
+                    }
+                }
+                @include tablet {
+                    display: inline-block;
+                }
+                &:hover {
+                    @include mobile {
+                        color: $colorHover;
+                    }
+                    @include tablet {
+                        background-color: $colorText;
+                        .menu-sub {
+                            visibility: inherit;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            &.active-menu {
+                display: block;
+            }
+        }
+    }
+    .row__info--upper {
+        @extend %info;
+    }
+    .row__products {
+        @extend %product;
+        background-image: url(../images/three-col-1.jpg);
+    }
+    .row__info--mid {
+        @extend %info;
+        @include mobile {
+            .__content {
+                margin-top: 50px;
+                margin-bottom: 0;
+            }
+        }
+        @include tablet {
+            .__content {
+                margin-top: 50px;
+                margin-bottom: 0;
+            }
+        }
+        .__images {
+            justify-content: space-between;
+            @include mobile {
+                justify-content: center;
+            }
+            @include tablet {
+                justify-content: space-around;
+            }
+        }
+    }
+    .row__contact {
+        @extend %product;
+        background-image: url(../images/frontpage-menu.jpg);
+    }
+    .row__info--down {
+        @extend %info;
+    }
+}
+
+.wrapper__footer {
+    width: 100%;
+    text-align: center;
+    background-color: $colorBg;
+    margin-top: 50px;
+    padding: 30px 0;
+    user-select: none;
+    .f__content {
+        width: 1200px;
+        margin: auto;
+        color: $colorTextWhite;
+        @include mobile {
+            width: 100%;
+            padding: 0 15px;
+        }
+        @include tablet {
+            width: 100%;
+            padding: 0 15px;
+        }
+        .image {
+            width: 200px;
+            margin: auto;
+        }
+        .text--footer {
+            font-size: $fontMin;
+            margin-top: 10px;
+        }
+        .contact {
+            width: 70%;
+            margin: auto;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            text-align: center;
+            font-size: $fontMin;
+            @include mobile {
+                width: 100%;
+            }
+            @include tablet {
+                width: 100%;
+            }
+            .add {
+                width: 50%;
+                @include mobile {
+                    width: 100%;
+                }
+                @include tablet {
+                    width: 100%;
+                }
+                i {
+                    margin-right: 10px;
+                }
+            }
+            .phone {
+                width: 25%;
+                @include mobile {
+                    width: 100%;
+                }
+                @include tablet {
+                    width: 100%;
+                }
+                i {
+                    margin-right: 10px;
+                }
+            }
+            .mail {
+                width: 25%;
+                @include mobile {
+                    width: 100%;
+                }
+                @include tablet {
+                    width: 100%;
+                }
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+        .social {
+            a {
+                margin: 10px 5px;
+                color: $colorTextWhite;
+                &:hover {
+                    color: $colorHover;
+                }
+            }
+        }
+        p {
+            font-size: $fontMin;
+        }
+    }
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    .slide-images {
+        max-width: 400px;
+        height: auto;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: $colorTextWhite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .btn-close {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #000;
+            user-select: none;
+        }
+    }
+    &.active {
+        display: block;
+    }
+}
