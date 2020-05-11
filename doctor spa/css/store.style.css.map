@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "store.style.scss"
+    ],
+    "names": [],
+    "file": "store.style.css"
+}
