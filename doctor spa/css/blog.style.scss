@@ -1,0 +1,74 @@
+@import "./style.scss";
+.blog__main {
+    @extend %configWidth;
+    margin: 30px auto;
+    .title {
+        @extend %title-post;
+    }
+    .blog__up {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+        .box {
+            @extend %box-post;
+            margin-bottom: 0;
+            @include mobile {
+                .image {
+                    height: 290px;
+                    width: 100%;
+                    margin-bottom: 15px;
+                }
+                .info {
+                    width: 100%;
+                }
+            }
+            .image {
+                height: 220px;
+            }
+            &:first-child {
+                grid-row: 1 / span 2;
+                @include mobile {
+                    grid-row: 1;
+                }
+                .image {
+                    height: 290px;
+                    width: 100%;
+                    margin-bottom: 15px;
+                }
+                .info {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .blog__down {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+        .box {
+            @extend %box-post;
+            margin-bottom: 0;
+            @include mobile {
+                .image {
+                    height: 290px;
+                    width: 100%;
+                    margin-bottom: 15px;
+                }
+                .info {
+                    width: 100%;
+                }
+            }
+            .image {
+                height: 220px;
+            }
+        }
+    }
+}
